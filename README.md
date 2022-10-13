@@ -15,17 +15,17 @@ We are hoping to answer:
 
 Sources of Data:
 
-*Chipotle Locations (https://www.kaggle.com/datasets/jeffreybraun/chipotle-locations)
-*Crime and Population Data (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2)
+* Chipotle Locations (https://www.kaggle.com/datasets/jeffreybraun/chipotle-locations)
+* Crime and Population Data (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2)
 
 ### Group Dynamic
 
 Communication Protocol:
-*Group iMessage for daily touch bases
-*Meetings Mondays, Tuesdays, Wednesdays, Thursdays at 7:00PM, adhoc as necessary 
+* Group iMessage for daily touch bases
+* Meetings Mondays, Tuesdays, Wednesdays, Thursdays at 7:00PM, adhoc as necessary 
 
 Accountability:
-*Each member has their own Github branch to track progress
+* Each member has their own Github branch to track progress
 
 ### Structure 
 
@@ -34,3 +34,49 @@ Main Branch:
   -Data (CSVs)
 - ReadMe
 -.gitignore 
+
+### Data Outline 
+
+Crime (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2)
+
+Columns 
+* Zip Code (developed by Karla)
+* Latitude 
+* Longitude
+* Primary Type of Crime
+    * Crime GPA (average of the binned description)
+* FBI Codes
+
+Notes: reduced the data here by 1.1% due to lack of Latitude and Longitude data 
+Initial rows of data: 110,952 
+Current rows of data: 109,731
+
+Chicago Population Counts (https://data.cityofchicago.org/Health-Human-Services/Chicago-Population-Counts/85cm-7uqa/data)
+
+Columns 
+
+* Zip code 
+* Total Population 
+    
+
+Chipotle Locations (https://www.kaggle.com/datasets/jeffreybraun/chipotle-locations)
+
+Columns 
+
+* Zip Code (developed by Karla)
+* Address
+* Lat 
+* Lng 
+
+Using Python to convert latitude and longitude from Chipotle data into zip codes in order to link to population and crime data. 
+
+
+
+
+
+
+
+
+
+
+
