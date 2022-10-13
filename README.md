@@ -34,6 +34,7 @@ Main Branch:
   -Data (CSVs)
 - ReadMe
 -.gitignore 
+<<<<<<< HEAD
 
 ### Data Outline 
 
@@ -80,3 +81,5 @@ Using Python to convert latitude and longitude from Chipotle data into zip codes
 
 
 
+=======
+>>>>>>> 2260bef2780bc3ddedcce34273054e990922d594
