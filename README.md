@@ -66,12 +66,31 @@ Chipotle Locations (https://www.kaggle.com/datasets/jeffreybraun/chipotle-locati
 
 Columns 
 
-* Zip Code (developed by Karla)
+* Zip Code (parsed by Micah)
 * Address
 * Lat 
 * Lng 
 
-Using Python to convert latitude and longitude from Chipotle data into zip codes in order to link to population and crime data. 
+Using Python to convert latitude and longitude from Chipotle data into zip codes in order to link to population and crime data.
+
+
+## Machine Learning Deliverable 
+
+#### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process 
+
+* For our features we used all the columns after they were encoded and dropped the target column which was 'chipotle'.
+ 
+#### Description of how data was split into training and testing sets 
+
+* To split our data into training and testing sets, we used the train_test_split function from sklearn package. By default, the package splits the dataset into 75% training data and 25% testing data.
+
+#### Explanation of model choice, including limitations and benefits
+
+* For our model, we decided to use a supervised machine learning model with resampling and ensemble techniques. 
+
+* In oversampling, its limitation is the algorithm can be heavily influenced by outliers and lead to noisy data. With under-sampling, the it does not work with small dataset. To overcome this limitation, we used a technique that is a combination of oversampling and under-sampling techniques.  
+
+* For ensemble technique the main benefit is that bias/variance can be reduced and most of the times thus the model is not underfitted/overfitted. However, this technique is also less interpretable so the output is hard to predict and explain.
 
 ## Database Deliverable
 
