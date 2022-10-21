@@ -1,0 +1,44 @@
+Data Cleaning and Rationalization:
+
+Base Datasets - 
+- Chipotle_stores.csv 
+- 2020_crime.csv 
+
+Initial cleaning of data completed in Jupyter Notebook with python, pandas, numpy, and os.
+    2020crime.csv data is for the Chicago area only 
+        - 110950 Rows of data with 23 columns including identifiers such as case #, Date/Time, Block(address), Primary Crime Type, Descripton, Location description, Arrest (T/F), Domestic (True/False), Beat, District, Ward, Community, FBI Code, X/Y coordinates, Last updated, Lattitude/Longitude, and Location(geocoordinates)
+        - 751 rows did not have lat/long or other locational data.  Initially these rows were dropped.
+    
+    Chipotle_stores.csv covers stores in the united states from Kagle
+        - Dataset has 2629 rows of data and 5 columns including State, City, address with zip, lattitude and longitude for each store.
+        - As data came from Kaggle precleaned, initially no initial scrubbing was conducted.
+
+Next steps - 
+    Collecting more data - 
+        - After team review and discussion with Educational team focus changed to develop model based on Chicago data then validate with other stores in other states/cities.
+        - Data gaps identified
+            - Recommendation was made to team to add population data to into the analysis for safety.  
+                - Best option identified was population by zip within Chicago from same source as crime data.  Chicago_Population_by_Zipcode_2020
+                    - Data set has zip, city, population, people/sq mile and national ranking for population.       
+            - In order to link to Chipotle data, Zip will need split from address column. And Crime Data will need to have zip added in.
+            - Ranking system needed to assess crime severity including identifier of "Bad/Good or Low/High Risk areas".
+            - Crime data does not have zip.  Need zip files.  chicago_zip_ward was also found on same chicago data portal.
+                - Data set has zip and ward only.  61 total wards included.
+    
+ 2nd Cleaning - 
+    Key Takaways -
+        - Ranking system - 
+            - Chicago has 5 main classes of Felonies (Class X - Class 4) and 3 main classes of misdemeanors(A-C or 1-3 depending upon source). 
+                - This lends to an 8 point ranking system with the highest severity crimes at 8 and lowest as 1.
+                - Classification of the crimes was manual as multiple websites had to be researched and a consolidated listing was not identified. As such ranking was added in base .csv via excel then updated .csv reloaded to branch
+        -Other Data Activities -
+            -  Merged datasets for crime and zip based on ward in Crime data to link zip.
+            - Pulled zip out to a separate column
+                  
+            - 
+        - Cleaning Review - 
+            - Average severity by zipcode is 3.63 to 4.18.
+            - Consolidating on zipcode reduces the primary dataset to 43 lines/zipcodes.
+                - Added rows back to model
+        
+     
