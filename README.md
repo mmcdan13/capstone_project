@@ -40,44 +40,85 @@ Main Branch:
 -.gitignore 
 <<<<<<< HEAD
 
-### Data Outline 
+### Data Sources 
 
-Crime (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2)
+Crime Data  (https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2)
 
 Columns 
-* Zip Code (developed by Karla)
+* ID
+* Case #
+* Date
+* Block (address by block)
+* IUCR
+* Primary Crime Type
+* Description of Crime
+* Location (Vehicle, Apartment, Street, Residence, etc.)
+* Arrest Status
+* Domestic Status
+* Police Beat
+* Police District
+* Ward
+* Community
+* FBI Code
+* XCoordinate
+* Y Coordinate
+* Year
+* Last updated
 * Latitude 
 * Longitude
-* Primary Type of Crime
-    * Crime GPA (average of the binned description)
-* FBI Codes
+* Location(lat/long)
 
-Notes: reduced the data here by 1.1% due to lack of Latitude and Longitude data 
-Initial rows of data: 110,952 
-Current rows of data: 109,731
-
-Chicago Population Counts (https://data.cityofchicago.org/Health-Human-Services/Chicago-Population-Counts/85cm-7uqa/data)
+Chicago Population data 2020 (https://data.cityofchicago.org/Health-Human-Services/Chicago-Population-Counts/85cm-7uqa/data)
 
 Columns 
-
 * Zip code 
-* Total Population 
+* Location (Lat/Long)
+* City with State
+* Population
+* Population density/Sq.Mile
+* National Ranking based on population
     
 
 Chipotle Locations (https://www.kaggle.com/datasets/jeffreybraun/chipotle-locations)
 
 Columns 
-
-* Zip Code (parsed by Micah)
+* Zip Code
 * Address
-* Lat 
+* Lat
 * Lng 
 
-Using Python to convert latitude and longitude from Chipotle data into zip codes in order to link to population and crime data.
+## Database Development
 
+### Data Cleaning 
+## Initial evaluations
+  - Crime Data is for Chicago 2020 only with 100000 entires
+  - A linkage/key is needed to link the crime and population data
+    -  Linkage identified as Zip to Ward data
+    -  Source: (https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Wards-Zipcodes/fcei-jacx)  
+  - Chipotle Data needs zip split out from address field
+## Cleaning Process
 
+*Cleaning and intial joins to provide database framework completed in Python with Panda dataframes, and os for joins/merges.  Primary link/key identified as zip to bring the 4 databases together.
+  - 2020-Crime
+    - Initially eliminated all rows missing lat/lng and location (1.1%).  Noted Added rows back after changing primary key to ward to link to zip.
+    - Created severity index for Primary Crime Types
+       1-8 point scale consistent with Class X - Class 3 Felonies and Class A/1 to C/3 Misdemeanors. Level 8 represents highest severity crimes: murder, criminal crimes against children, Armed Robbery, Terrorist threats, and solicition for murder. Level 1 represents lowest severity misdemeanor offenses: petty theft, simple assult, evading police, vandalism, cyber bullying, minor possession, child welfare.
+   
+
+* Linkages/Merges completed in python:
+  - 2020_Crime.csv to Ward_Zip.csv
+  - Crime_Zip_df to Chicago_Population_by Zipcode_2020.csv
+  - For intial model prototype database: .csv to New_Chipotle_Data
+
+* Changes made for modeling purposes
+  - Changed Arrest and Domestic columns from True/False to Binary 1/0
+  - Changed Chipotle location in Zip from Yes to Binary 1/0
+  - Converted National rank from # and the number rank to numeric only.
+
+* Fields maintained for model: Zip, Ward, Primary_Type, Latitude and Longitude of incident, Arrest status (binary 1=yes), Domstic Status (binary 1=yes), Population, People/Sq.Mile, National_rank, chipotle (binary 1=yes), Safety - (1-3 ranking reflects safe, binary yes = 1) 
+     
+##
 ## Machine Learning Deliverable 
-
 #### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process 
 
 * For our features we used all the columns after they were encoded and dropped the target column which was 'chipotle'.
@@ -88,12 +129,20 @@ Using Python to convert latitude and longitude from Chipotle data into zip codes
 
 #### Explanation of model choice, including limitations and benefits
 
-* For our model, we decided to use a supervised machine learning model with resampling and ensemble techniques. 
+* For our model, we decided to use a supervised machine learning model with resampling and ensemble techniques.  
 
-* In oversampling, its limitation is the algorithm can be heavily influenced by outliers and lead to noisy data. With under-sampling, the it does not work with small dataset. To overcome this limitation, we used a technique that is a combination of oversampling and under-sampling techniques.  
+* In oversampling, its limitation is that the algorithm can be heavily influenced by outliers and lead to noisy data. With under-sampling, the it does not work with small dataset. To overcome this limitation, we used a technique that is a combination of oversampling and under-sampling techniques.  
 
 * For ensemble technique the main benefit is that bias/variance can be reduced and most of the times thus the model is not underfitted/overfitted. However, this technique is also less interpretable so the output is hard to predict and explain.
 
+## Database Deliverable
+
+### RDS Database Created
+![aws.png](Resources/aws.png)
+
+
+### PostGres Connected Database
+![pga.png](Resources/pga.png)
 
 
 
