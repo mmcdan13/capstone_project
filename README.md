@@ -117,23 +117,22 @@ Columns
 
 * Fields maintained for model: Zip, Ward, Primary_Type, Latitude and Longitude of incident, Arrest status (binary 1=yes), Domstic Status (binary 1=yes), Population, People/Sq.Mile, National_rank, chipotle (binary 1=yes), Safety - (1-3 ranking reflects safe, binary yes = 1) 
      
-##
+
 ## Machine Learning Deliverable 
+#### Description of preliminary data preprocessing
+*	In our preprocessing, the only thing we changed was converting ‘Arrest’ and ‘Domestic’ columns into ones and zeros and not encoding the other ‘object’ type columns. In our csv file, we also adjusted the ‘Safety’ ratings by increasing range of ‘safe’ including misdemeanors (rankings of 3 or below).
 #### Description of preliminary feature engineering and preliminary feature selection, including their decision-making process 
-
-* For our features we used all the columns after they were encoded and dropped the target column which was 'chipotle'.
- 
-#### Description of how data was split into training and testing sets 
-
-* To split our data into training and testing sets, we used the train_test_split function from sklearn package. By default, the package splits the dataset into 75% training data and 25% testing data.
-
-#### Explanation of model choice, including limitations and benefits
-
-* For our model, we decided to use a supervised machine learning model with resampling and ensemble techniques.  
-
-* In oversampling, its limitation is that the algorithm can be heavily influenced by outliers and lead to noisy data. With under-sampling, the it does not work with small dataset. To overcome this limitation, we used a technique that is a combination of oversampling and under-sampling techniques.  
-
-* For ensemble technique the main benefit is that bias/variance can be reduced and most of the times thus the model is not underfitted/overfitted. However, this technique is also less interpretable so the output is hard to predict and explain.
+*	Because we introduced our own ranking system, we determined that encoding our dataset was not necessary. We also used StandardScaler to normalize the data. For our feature selection, we filtered out more unnecessary columns. Specifically, we removed, ‘Population’, ‘Latitude’, ‘Longitude’, and ‘Ward’. 
+### Description of how data was split into training and testing sets 
+*	In our original model, we split the dataset using the default settings of 75% training and 25% testing. In our neural network, we split our dataset into 70% training and 30% testing. We also included a Shuffle parameter data to address the imbalance of safe/unsafe.
+#### Explanation of model choice, including limitations and benefits. 
+*	We changed from supervised machine learning models to a deep neural network.
+*	The main benefits of neural network are that it is flexible and can be used for both regression and classification problems and works best with lot of data points.
+*	One problem of neural network is that it is prone to overfitting. Adding too much nodes and hidden layer will overtrain our model. Additionally, is is computationally very expensive and time consuming to train models.
+#### Description of how they have trained the model thus far, and any additional training that will take place
+*	In our first hidden layer we added two to three times the number of nodes as input features. With six input features, we put 15 nodes in the first hidden layer and 10 layers in the second hidden layer. Additionally, we added a dropout layer to prevent overfitting. In our hidden layers we also using ‘relu’ activation function and ‘sigmoid’ activation function in our output layer. These activation functions were used because they are commonly used in classification problems. To train the model, we increased the batch size during the fitting process to hyper train our model and then lowered it at our final training. Finally, we lowered the epoch from 100 to 50.
+#### Description of current accuracy score Additionally, the model obviously addresses the question or problem the team is solving.
+*	With the deep neural network model, we have an accuracy of 99.8%. Our model predicts whether the presence of chipotle is determined by crime and population demographic data.
 
 ## Database Deliverable
 
