@@ -136,15 +136,11 @@ Columns
 ## Database Deliverable
 
 ### RDS Database Created
-![RDS1.png](Resources/RDS1.png)
+![aws.png](Resources/aws.png)
 
 
-### RDS Database Configuration
-![RDS2.png](Resources/RDS2.png)
-
-
-### PostGres Connection
-![PG1.png](Resources/PG1.png)
+### PostGres Connected Database
+![pga.png](Resources/pga.png)
 
 
 
