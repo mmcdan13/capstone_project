@@ -39,6 +39,37 @@ Next steps -
         - Cleaning Review - 
             - Average severity by zipcode is 3.63 to 4.18.
             - Consolidating on zipcode reduces the primary dataset to 43 lines/zipcodes.
-                - Added rows back to model
-        
+            
+3rd Cleaning - post first model Runs
+		- Added rows for all population information; Arrest & Domestic status, date, ward back from crime data to run through model.
+		- Provided updated joined database from python and pandas for modeling.
+
+
+4th Cleaning - After changing model to neural network and encountering issues with PGAdmin access to send cleaned data for final joins.
+	Identified issues with overfit and impact with ranking system.  Solutions identified included:
+		- convert Arrest, Domestic, and Chipotle in Zip data to binary once joined.
+		- Change join configuration - 
+			- First join Zip Ward data to Crime
+			- second join Chipotle data to Crime with Zip.
+			- final join in PGAdmin to AWS then S3 to feed model.
+		-  Data changes
+			- For zips with more than 1 chipotle store, filter data to only keep 1 line per zip with a store.  (stops us from generating 17,000 additional crime line items by creating duplicates to support each store address.
+			- Once linked to Crime Data convert column to binary 0/1 for no/yes there is a store in that zip code.
+			- Drop locational data - Address, Lat, and lng data.  Not needed for model.
+			- Convert Arrest and Domestic to binary
+			- Add Safety index - Binary 1-3 ranking safe, 4-8 unsafe. Only 13 line items show in model outputs. Still resolving if Rank will stay or go.
+			- After final join in python and resolving excessive lines, end result was 18 lines missing.  After pivoting in excel multiple ways, identified that of all the code, only 18 incidents had multiple line items in the original database had multiple arrests. 
+			    those 18 lines were in the homicide category.  Those were left in the data set as they are in the highest rank category.
+	Final files loaded into pgadmin from the dataframes includes:
+		- Individual structure:  
+			Server name: Capstone_new/Capstone2 - can vary by individual on team
+			Database - postgres
+			Tables Loaded - 7
+				Original .csv's from internet
+					- 2020_Crime, Chicago_Population_by_Zipcode_2020, chicage_zip_ward, and chipotle_data
+				New base tables
+					- Clean Pop - Cleaned base pop data to pertinent columns only
+					- crime_chip_final - Crime cleaned with zip and chip with all binary columns
+				
+        	
      
