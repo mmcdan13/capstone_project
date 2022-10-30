@@ -5,8 +5,8 @@
 CREATE TABLE "clean_pop" (
     "index" int   NOT NULL,
     "zip" int   NOT NULL,
-    "population" string   NOT NULL,
-    "people/sq.mile" string   NOT NULL,
+    "population" varchar   NOT NULL,
+    "people/sq.mile" varchar   NOT NULL,
     "national_rank" int   NOT NULL,
     CONSTRAINT "pk_clean_pop" PRIMARY KEY (
         "zip"
@@ -16,17 +16,17 @@ CREATE TABLE "clean_pop" (
 CREATE TABLE "crime_chip_final" (
     "index" int   NOT NULL,
     "zip" int   NOT NULL,
-    "ward" float(64)   NOT NULL,
-    "case_number" string   NOT NULL,
-    "primary_type" string   NOT NULL,
-    "rankings" float(64)   NOT NULL,
+    "ward" int   NOT NULL,
+    "case_number" varchar   NOT NULL,
+    "primary_type" varchar   NOT NULL,
+    "rankings" int   NOT NULL,
     "latitude" float(64)   NOT NULL,
     "longitude" float(64)   NOT NULL,
-    "arrest" float(64)   NOT NULL,
-    "domestic" float(64)   NOT NULL,
-    "state" string   NOT NULL,
-    "location" string   NOT NULL,
-    "chipotle" float(64)   NOT NULL
+    "arrest" int   NOT NULL,
+    "domestic" int   NOT NULL,
+    "state" varchar   NOT NULL,
+    "location" varchar   NOT NULL,
+    "chipotle" int   NOT NULL
 );
 
 ALTER TABLE "crime_chip_final" ADD CONSTRAINT "fk_crime_chip_final_zip" FOREIGN KEY("zip")

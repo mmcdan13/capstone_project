@@ -24,4 +24,3 @@ LEFT JOIN clean_pop p
     ON p.zip = c.zip
 
 ORDER BY c.index;
-        
