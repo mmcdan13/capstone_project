@@ -1,5 +1,7 @@
 -- This file joins the crime_chip_final table and the clean_pop table to create the final input for the model.
 
+CREATE TABLE final_data AS
+
 SELECT 
         c.index
         , c.zip
