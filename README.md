@@ -143,6 +143,12 @@ Columns
 ### PostGres Connected Database
 ![pga.png](Resources/pga.png)
 
+### Entity Relationship Diagram
+![erd.png](Resources/erd.png)
+
+### SQL Join
+![join.png](Resources/join.png)
+
 
 
 
