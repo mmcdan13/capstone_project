@@ -16,6 +16,7 @@ SELECT
         , c.arrest
         , c.domestic
         , c.chipotle
+        , c.safe_status
                 
 FROM crime_chip_final c
         
