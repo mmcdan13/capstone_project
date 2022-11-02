@@ -1,0 +1,3 @@
+db_password = 'SQLme8421!!'
+ACCESS_ID = 'AKIAQU75E7IUUTLYOFRO'
+ACCESS_KEY = 'eJBhy2tohJi744gzkXQmFxs8Ecel2WCwmr7Sywnw'
