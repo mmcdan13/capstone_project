@@ -1,10 +1,9 @@
 # capstone_project
 
-Link to Project Outline Google Drive https://docs.google.com/document/d/1ZsROYre1mGJZ1bcuoWHezt7zbeNrAfOq_PrLy90I6GE/edit?usp=sharing ; will be deleted after completion of project
+Link to [Google Slides presentation](https://docs.google.com/presentation/d/1pk2vo9F5P8zRDAE08-awe8mJJhPhlngZq-S5-RuwvW4/edit?usp=sharing)
 
-Link to Google Slides presentation (including outline for dashboard) https://docs.google.com/presentation/d/1pk2vo9F5P8zRDAE08-awe8mJJhPhlngZq-S5-RuwvW4/edit?usp=sharing
+Link to [Tableau Dashboard](https://public.tableau.com/views/MetroChicagoChipotlevsCrime/MetroChicagoChipotlevs_Crime?:language=en-US&:display_count=n&:origin=viz_share_link)
 
-Link to Tableau Dashboard: https://public.tableau.com/views/MetroChicagoChipotlevsCrime/MetroChicagoChipotlevs_Crime?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link
 
 ## Project Overview
 
@@ -13,8 +12,11 @@ Topic: Are Chipotles in the Chicago, Illinois region located in "safe" neighborh
 We are interested in whether Chipotles are located in "safe" neighborhoods because we are considering opening a Chipotle franchise and would like to make sure it is located in the area based on existing locations in Chicago,IL. We are using Chicago as our model city because it's the third largest city in the U.S.A., it has a diverse population, and large metropolitan and suburban areas.
 
 We are hoping to answer:
-1. How many Chipotle locations are in "safe" locations?
-2. Based on zip code population and crime data, can we predict if the location is viable for a Chipotle location?
+1. Are Chipotles located in "safe" neighborhoods based on zip code, and is crime data a good predictor of target locations for growth?
+2. How many zip codes are in Chicago?
+3. How many Chipotle locations are in Illinois? 
+4. How many Chipotle locations are in Chicago?
+5. What is the crime rate per zip code in Chicago?
 
 
 Sources of Data:
@@ -38,7 +40,6 @@ Main Branch:
   -Data (CSVs)
 - ReadMe
 -.gitignore 
-<<<<<<< HEAD
 
 ### Data Sources 
 
@@ -165,5 +166,3 @@ Explanation of changes in model choice (if changes occurred between the Segment 
 
 
 
-=======
->>>>>>> 2260bef2780bc3ddedcce34273054e990922d594
